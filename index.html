@@ -5,52 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guilherme Mendes</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: slideDown 1s ease-in-out;
         }
-        h1 {
-            margin-top: 0;
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 800px;
             margin: auto;
-            overflow: hidden;
             padding: 20px;
+            position: relative;
         }
-        .about {
-            background-color: #fff;
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+            position: relative;
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+        .bubble {
+            width: 50px;
+            height: 50px;
+            background: #ff7e5f;
+            border-radius: 50%;
+            position: absolute;
+            top: -25px;
+            left: 15px;
+            animation: bounce 2s infinite alternate ease-in-out;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        h2 {
+            color: #ff7e5f;
+            animation: popIn 1.5s ease-in-out;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        a {
+            color: #ff7e5f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        a:hover {
+            color: #ffa07a;
+            text-shadow: 0 0 10px rgba(255, 126, 95, 0.8);
         }
         footer {
-            background-color: #333;
-            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
-            text-align: center;
+            font-size: 14px;
+        }
+        button {
+            background: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+            animation: bounceIn 1s ease-in-out;
+        }
+        @keyframes bounceIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        button:hover {
+            background: #ffa07a;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 0 15px rgba(255, 126, 95, 0.7);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Guilherme Mendes</h1>
+        Guilherme Mendes
     </header>
     <div class="container">
-        <section class="about">
+        <section class="card">
+            <div class="bubble"></div>
             <h2>About Me</h2>
-            <p>I'm Guilherme Mendes, a student in pursuit of a degree in Electrical and Computer Engineering with a keen interest in Telecommunications, Networks, and Robotics. With a fervent passion for technology, I've delved into the intricacies of C, Java, and Python programming languages, mastering them to develop efficient and reliable solutions.</p>
+            <p>I'm Guilherme Mendes, a student in Electrical and Computer Engineering with interests in Telecommunications, Networks, and Robotics. Passionate about technology, I have experience with C, Java, and Python.</p>
         </section>
-        <section class="certifications">
+        <section class="card">
+            <div class="bubble"></div>
             <h2>Certifications I'm working for</h2>
             <ul>
                 <li>Comptia A+</li>
@@ -58,21 +137,23 @@
                 <li>Comptia Linux+</li>
             </ul>
         </section>
-        <section class="Websites">
+        <section class="card">
+            <div class="bubble"></div>
             <h2>Websites</h2>
-      
             <ul>
-                <li>Github: <a href="https://github.com/Gui75525">https://github.com/Gui75525</a></li>
-                <li>Leetcode: <a href="https://leetcode.com/u/Gui75525/">https://leetcode.com/u/Gui75525/</a></li>
+                <li>Github: <a href="https://github.com/Gui75525">Gui75525</a></li>
+                <li>Leetcode: <a href="https://leetcode.com/u/Gui75525/">Gui75525</a></li>
             </ul>
         </section>
-        <section class="contact">
+        <section class="card">
+            <div class="bubble"></div>
             <h2>Contact Me</h2>
-            <p>You can reach out to me via email at <a href="mailto:guinaescola@proton.me">guinaescola@proton.me</a>.</p>
+            <p>Email: <a href="mailto:guinaescola@proton.me">guinaescola@proton.me</a></p>
+            <button onclick="alert('Thank you for visiting!')">Say Hi!</button>
         </section>
     </div>
     <footer>
-        <p>&copy; 2024 Guilherme Mendes</p>
+        &copy; 2024 Guilherme Mendes
     </footer>
 </body>
 </html>
